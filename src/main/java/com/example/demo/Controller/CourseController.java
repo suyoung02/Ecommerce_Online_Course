@@ -1,5 +1,6 @@
 package com.example.demo.Controller;
 
+import com.example.demo.Model.Category;
 import com.example.demo.Model.Course;
 import com.example.demo.Service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,13 +30,14 @@ public class CourseController {
 
     @GetMapping(path = "/")
     public String homepage(Model model){
-        List<Course> courseList = courseService.getAll();
-        System.out.println(courseList.get(0).getName() + courseList.get(0).getDob());
+        List<Category> courseList = courseService.getAllCate();
         model.addAttribute("courses", courseList);
         return "homepage";
     }
     @GetMapping(path = "/course")
     public String allCourse(Model model){
+        List<Category> courseList = courseService.getAllCate();
+        model.addAttribute("courses", courseList);
         return "courses";
     }
 
