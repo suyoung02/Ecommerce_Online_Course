@@ -27,13 +27,17 @@ public class CourseController {
         model.addAttribute("courses", courseList);
         return "single-course";
     }
-
     @GetMapping(path = "/")
-    public String homepage(Model model){
-        List<Category> courseList = courseService.getAllCate();
-        model.addAttribute("courses", courseList);
-        return "homepage";
+    public String index(){
+        return "a";
     }
+
+//    @GetMapping(path = "/")
+//    public String homepage(Model model){
+//        List<Category> courseList = courseService.getAllCate();
+//        model.addAttribute("courses", courseList);
+//        return "homepage";
+//    }
     @GetMapping(path = "/course")
     public String allCourse(Model model){
         List<Category> courseList = courseService.getAllCate();
